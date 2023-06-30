@@ -31,6 +31,10 @@ const App = () => {
   });
 
   useEffect(() => {
+    const onConnect = () => {
+      uid.current = socket.id;
+    };
+
     const onMessage = (data) => {
       console.log(`${data.id}가 보냈다잉: `, data);
 
@@ -45,14 +49,11 @@ const App = () => {
       console.log(`${userId}가 떠났다잉ㅠ`);
     };
 
+    socket.on('connect', onConnect);
     socket.on('Message', onMessage);
     socket.on('USER_ENTER', onUserEnter);
     socket.on('USER_LEAVE', onUserLeave);
   }, []);
-
-  useEffect(() => {
-    uid.current = socket.id;
-  }, [socket.id]);
 
   useEffect(() => {
     historyElement.current.scrollTop = historyElement.current.scrollHeight;

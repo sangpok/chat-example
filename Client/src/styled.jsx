@@ -30,7 +30,11 @@ export const StyledApp = {
     <input className=" py-1 px-3 w-1/4 font-bold outline-none appearance-none" {...props} />
   ),
   MessageInput: (props) => (
-    <input className=" py-1 px-3 w-full outline-none appearance-none" {...props} />
+    <input
+      className=" py-1 px-3 w-full outline-none appearance-none"
+      {...props}
+      autoComplete="off"
+    />
   ),
   SubmitButton: ({ children, props }) => (
     <button className=" min-w-fit py-1 px-3 font-bold" type="submit">
